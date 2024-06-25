@@ -16,19 +16,23 @@ public class FeignUserServe {
 
     @RequestMapping("find")
     public int find(String name){
-        if(!userServe.findsG().isEmpty()){
-            JSONArray jsonArray =new JSONArray(userServe.findsG().get("data").toString().replace("=", ":"));
-            int num=0;
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject obj = jsonArray.getJSONObject(i);
-                String temp = obj.getString("name");
-                if(Objects.equals(temp, name)){
-                    num++;
+        try {
+            if (!userServe.findsG().isEmpty()) {
+                JSONArray jsonArray = new JSONArray(userServe.findsG().get("data").toString().replace("=", ":"));
+                int num = 0;
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject obj = jsonArray.getJSONObject(i);
+                    String temp = obj.getString("name");
+                    if (Objects.equals(temp, name)) {
+                        num++;
+                    }
+                }
+                if (num == 1) {
+                    return 1;
                 }
             }
-            if(num==1){
-                return 1;
-            }
+        }catch (Exception e){
+            System.out.println("请检查网关是否开启");
         }
         return 0;
     }
