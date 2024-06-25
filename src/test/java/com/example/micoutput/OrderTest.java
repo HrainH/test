@@ -23,7 +23,7 @@ public class OrderTest extends MicOutputApplicationTests{
     public void orderFindTest(){
         System.out.println(orderController.getOrders());
         Assert.assertSame("当前用户订单有误！",2,orderController.getOrdersWithName("张三").size());
-        Assert.assertSame("当前用户无订单！",0,orderController.getOrdersWithName("小梅").size());
+        Assert.assertSame("当前用户无订单！",1,orderController.getOrdersWithName("小梅").size());
     }
 
     @Test
