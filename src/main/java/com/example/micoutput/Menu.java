@@ -2,7 +2,6 @@ package com.example.micoutput;
 
 import com.example.micoutput.Kafka.KafkaProducer;
 import com.example.micoutput.RabbitMQ.RabbitMQProducer;
-import com.example.micoutput.controller.OrderController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
