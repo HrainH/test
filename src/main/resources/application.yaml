@@ -1,0 +1,31 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: KafkaDemo
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 10.161.78.114:9092
+          configuration:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      bindings:
+        input-in-0:
+          destination: MyTopic
+          group: my-group
+        output-out-0:
+          destination: MyTopic
+
+
+
+
+
+
+
+
+
+
+
