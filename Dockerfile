@@ -18,7 +18,6 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # 复制编译好的 JAR 文件到容器中
-#COPY target/KafkaDemo-0.0.1-SNAPSHOT.jar /app
 COPY --from=build /app/target/KafkaDemo-0.0.1-SNAPSHOT.jar /app/KafkaDemo-0.0.1-SNAPSHOT.jar
 
 # 暴露容器的端口，Spring Boot 默认使用 8080 端口
