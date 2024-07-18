@@ -1,5 +1,7 @@
 package com.example.kafkademo;
 
+
+import org.json.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.Message;
@@ -14,7 +16,14 @@ public class KafkaChannel {
     public Consumer<Message<String>> input(){
         return message -> {
             System.out.println("接收到消息：" + message.getPayload());
-            System.out.println("接收到消息：" + message.getHeaders());
+            JSONObject jsonObject = new JSONObject(message.getPayload());
+
+            String title = jsonObject.getString("title");
+            String content = jsonObject.getString("content");
+
+            System.out.println(title+" "+content);
+
+//            System.out.println("接收到消息：" + message.getHeaders());
         };
     }
 }

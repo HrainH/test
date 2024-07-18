@@ -8,7 +8,9 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 10.161.78.114:9092
+          brokers:
+            10.161.78.114:9092,
+            10.161.78.114:9093,
           configuration:
             key-serializer: org.apache.kafka.common.serialization.StringSerializer
             value-serializer: org.apache.kafka.common.serialization.StringSerializer
